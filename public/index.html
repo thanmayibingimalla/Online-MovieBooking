@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanmayi Cinemas | Book your moment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">T</span><span>THANMAYI<small>CINEMAS</small></span></a>
+  <nav><a href="#movies">Movies</a><a href="#how">Experience</a><button class="nav-link" id="myBookingsBtn">My bookings</button></nav>
+  <div class="account" id="accountArea"><button class="btn btn-outline" id="loginOpen">Sign in</button><button class="btn btn-gold" id="registerOpen">Join now</button></div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="eyebrow"><span></span> THE BIG SCREEN EXPERIENCE</div>
+      <h1>Make tonight<br><em>movie night.</em></h1>
+      <p>Find your story. Pick your seats. Let the magic begin.</p>
+      <a href="#movies" class="btn btn-gold btn-large">Explore movies <span>↗</span></a>
+      <div class="hero-foot"><span>✦ CURATED FOR CINEMA LOVERS</span><span>01 — 03</span></div>
+    </div>
+    <div class="hero-art">
+      <div class="hero-poster poster-one"><img src="https://m.media-amazon.com/images/M/MV5BZWEwNmYwYTAtMmQxYS00ZTgwLWE0NmUtNGIwZDEyZmYwN2EwXkEyXkFqcGc%40._V1_FMjpg_UX1000_.jpg" alt="Devara movie poster"></div>
+      <div class="hero-poster poster-two"><img src="https://www.cinejosh.com/newsimg/newsmainimg/pushpa-2-record-pre-release-business_b_2110241229.jpg" alt="Pushpa 2 movie poster"></div>
+      <div class="hero-stamp">YOUR<br>NEXT<br>FAVOURITE<br>FILM <b>✦</b></div>
+      <div class="art-caption">THE CINEMA CLUB / EST. 2026</div>
+    </div>
+  </section>
+
+  <section class="ticker"><span>GOOD STORIES DESERVE A BIG SCREEN</span><b>✳</b><span>YOUR SEAT IS WAITING</span><b>✳</b><span>LIGHTS. CAMERA. YOU.</span></section>
+
+  <section class="section" id="movies">
+    <div class="section-head"><div><div class="eyebrow dark">NOW SHOWING</div><h2>Find your <em>film.</em></h2></div>
+      <div class="filters"><input id="searchInput" type="search" placeholder="Search a movie..."><select id="genreFilter"><option value="">All genres</option><option>Action</option><option>Drama</option><option>Sci-Fi</option><option>Comedy</option><option>Thriller</option></select><select id="languageFilter"><option value="">All languages</option><option>Telugu</option><option>Hindi</option><option>English</option><option>Tamil</option></select></div>
+    </div>
+    <div id="movieGrid" class="movie-grid"><div class="loading">Loading the latest shows…</div></div>
+  </section>
+
+  <section class="experience" id="how">
+    <div class="experience-image"><img src="https://images.unsplash.com/photo-1489599849927-2ee91ece3ba7?auto=format&fit=crop&w=1200&q=85" alt="Cinema theater seats"></div>
+    <div class="experience-copy"><div class="eyebrow">A BETTER WAY TO BOOK</div><h2>Your seat.<br><em>Your moment.</em></h2><p>Skip the queue and make your plans in a few clicks. Choose a movie, find a showtime, and reserve the seats you love.</p><div class="feature-list"><div><b>01</b><span><strong>Choose your movie</strong><small>Browse movies and languages.</small></span></div><div><b>02</b><span><strong>Pick your seats</strong><small>See live seat availability.</small></span></div><div><b>03</b><span><strong>Book & enjoy</strong><small>Your booking is saved to your account.</small></span></div></div></div>
+  </section>
+</main>
+
+<footer><a class="brand footer-brand" href="#"><span class="brand-mark">T</span><span>THANMAYI<small>CINEMAS</small></span></a><span>© 2026 THANMAYI CINEMAS · MADE FOR MOVIE LOVERS</span><a href="#movies">BACK TO TOP ↑</a></footer>
+
+<div class="modal" id="authModal"><div class="modal-card auth-card"><button class="close" data-close>×</button><div class="eyebrow dark">WELCOME TO THE CLUB</div><h2 id="authTitle">Sign in</h2><form id="authForm"><div id="nameField" class="form-field hidden"><label>Your name</label><input name="name" placeholder="Enter your name"></div><div class="form-field"><label>Email address</label><input name="email" type="email" required placeholder="you@example.com"></div><div class="form-field"><label>Password</label><input name="password" type="password" required minlength="6" placeholder="At least 6 characters"></div><div id="phoneField" class="form-field hidden"><label>Phone number</label><input name="phone" placeholder="Optional"></div><button class="btn btn-dark full" id="authSubmit">Sign in →</button></form><p class="switch-auth" id="switchAuth">New here? <button> Create an account</button></p></div></div>
+
+<div class="modal" id="showModal"><div class="modal-card wide-card"><button class="close" data-close>×</button><div class="eyebrow dark">CHOOSE YOUR SHOW</div><h2 id="showMovieTitle">Movie</h2><div id="showList" class="show-list"></div></div></div>
+
+<div class="modal" id="seatModal"><div class="modal-card seat-card"><button class="close" data-close>×</button><div class="eyebrow dark">THE BEST SEAT IN THE HOUSE</div><h2>Select your <em>seats.</em></h2><p id="seatShowInfo" class="muted"></p><div class="screen">SCREEN THIS WAY</div><div id="seatMap" class="seat-map"></div><div class="seat-legend"><span><i class="available"></i> Available</span><span><i class="selected"></i> Selected</span><span><i class="booked"></i> Booked</span></div><div class="booking-bottom"><div><small>SELECTED SEATS</small><strong id="selectedCount">0 seats</strong></div><div><small>TOTAL AMOUNT</small><strong id="totalAmount">₹0</strong></div><button class="btn btn-dark" id="confirmBooking" disabled>Confirm booking →</button></div></div></div>
+
+<div class="modal" id="bookingsModal"><div class="modal-card wide-card"><button class="close" data-close>×</button><div class="eyebrow dark">YOUR CINEMA DIARY</div><h2>My bookings</h2><div id="bookingList"></div></div></div>
+
+<div class="modal" id="adminModal"><div class="modal-card wide-card"><button class="close" data-close>×</button><div class="eyebrow dark">STUDIO CONTROL</div><h2>Admin <em>dashboard.</em></h2><div id="adminStats" class="admin-stats"></div><div class="admin-columns"><form id="movieForm" class="admin-form"><h3>Add a movie</h3><input name="title" required placeholder="Movie title"><input name="genre" placeholder="Genre"><input name="language" placeholder="Language"><input name="duration" type="number" required placeholder="Duration (minutes)"><input name="release_date" type="date"><input name="poster_url" placeholder="Poster image URL"><textarea name="description" placeholder="Short description"></textarea><button class="btn btn-dark full">Add movie</button></form><form id="theaterForm" class="admin-form"><h3>Add a theater</h3><input name="theater_name" required placeholder="Theater name"><input name="city" required placeholder="City"><input name="address" placeholder="Address"><button class="btn btn-dark full">Add theater</button><h3 class="space-top">Schedule a show</h3><select name="movie_id" id="adminMovieSelect" required></select><select name="theater_id" id="adminTheaterSelect" required></select><input name="show_date" type="date" required><input name="show_time" type="time" required><input name="ticket_price" type="number" min="1" step="0.01" placeholder="Ticket price ₹" required><button class="btn btn-gold full">Create show</button></form></div><div class="admin-movies"><h3>Manage movies</h3><div id="adminMovieList"></div></div></div></div>
+
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body></html>
